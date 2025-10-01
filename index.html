@@ -27,15 +27,14 @@
 </head>
 <body>
   <header>
-    <h1>OSM Explorer</h1>
     <div class="controls">
-      <input id="searchBox" type="text" placeholder="Search location..." />
-      <button id="searchButton">Search</button>
-      <button id="locateButton">Locate Me</button>
-      <button id="selectButton">Select Location</button>
-      <button id="poiButton">Show POIs</button>
-      <label><input type="checkbox" id="transitToggle" /> Transit overlay</label>
-      <label><input type="checkbox" id="darkToggle" /> Dark mode</label>
+      <input id="searchBox" type="text" placeholder="Search..." />
+      <button id="searchButton" class="icon-btn" title="Search">🔍</button>
+      <button id="locateButton" class="icon-btn" title="Locate me">📍</button>
+      <button id="selectButton" class="icon-btn" title="Select location">🎯</button>
+      <button id="poiButton" class="icon-btn" title="Points of interest">⭐</button>
+      <label class="toggle" title="Transit overlay"><input type="checkbox" id="transitToggle" /><span>Transit</span></label>
+      <label class="toggle" title="Dark mode"><input type="checkbox" id="darkToggle" /><span>Dark</span></label>
     </div>
   </header>
   <div id="map"></div>

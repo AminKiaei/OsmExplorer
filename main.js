@@ -110,7 +110,7 @@ function initMap() {
     selectMode = false;
     const btn = document.getElementById('selectButton');
     if (btn) {
-      btn.textContent = 'Select Location';
+      btn.classList.remove('active');
     }
     map.getContainer().style.cursor = '';
   });
@@ -199,10 +199,10 @@ function setupUI() {
   selectButton.addEventListener('click', () => {
     selectMode = !selectMode;
     if (selectMode) {
-      selectButton.textContent = 'Cancel Selection';
+      selectButton.classList.add('active');
       map.getContainer().style.cursor = 'crosshair';
     } else {
-      selectButton.textContent = 'Select Location';
+      selectButton.classList.remove('active');
       map.getContainer().style.cursor = '';
       // remove selected marker if selection cancelled
       if (selectedMarker) {
@@ -217,7 +217,7 @@ function setupUI() {
     if (poiLayer) {
       map.removeLayer(poiLayer);
       poiLayer = null;
-      poiButton.textContent = 'Show POIs';
+      poiButton.classList.remove('active');
     } else {
       fetchPOIs();
     }
@@ -323,7 +323,9 @@ function showDirections(instructions, summary) {
 function fetchPOIs() {
   // Indicate loading state
   const poiButton = document.getElementById('poiButton');
-  if (poiButton) poiButton.textContent = 'Loading POIs…';
+  if (poiButton) {
+    poiButton.classList.add('loading');
+  }
   const bounds = map.getBounds();
   const southWest = bounds.getSouthWest();
   const northEast = bounds.getNorthEast();
@@ -360,11 +362,16 @@ function fetchPOIs() {
         });
       }
       poiLayer.addTo(map);
-      if (poiButton) poiButton.textContent = 'Hide POIs';
+      if (poiButton) {
+        poiButton.classList.remove('loading');
+        poiButton.classList.add('active');
+      }
     })
     .catch((err) => {
       console.error(err);
       alert('Failed to load POIs');
-      if (poiButton) poiButton.textContent = 'Show POIs';
+      if (poiButton) {
+        poiButton.classList.remove('loading');
+      }
     });
 }
