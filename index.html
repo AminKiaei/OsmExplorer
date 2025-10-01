@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSM Explorer</title>
+  <!-- PWA manifest and icon -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <!-- Leaflet styles -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-o9N1j6kF11WTnU/8Q7Qe3vGWC4dOcPjHO5Be1cJteIs="
+    crossorigin=""
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#3367d6">
+</head>
+<body>
+  <header>
+    <h1>OSM Explorer</h1>
+    <div class="controls">
+      <input id="searchBox" type="text" placeholder="Search location..." />
+      <button id="searchButton">Search</button>
+      <button id="locateButton">Locate Me</button>
+      <button id="selectButton">Select Location</button>
+      <button id="poiButton">Show POIs</button>
+      <label><input type="checkbox" id="transitToggle" /> Transit overlay</label>
+      <label><input type="checkbox" id="darkToggle" /> Dark mode</label>
+    </div>
+  </header>
+  <div id="map"></div>
+  <div id="routingPanel"></div>
+  <!-- External libraries -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-o2h/N1h/38HZOiMwLrRfic1gmE38whxfm5ePl+Dtb30="
+    crossorigin=""
+  ></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
